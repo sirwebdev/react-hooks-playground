@@ -1,11 +1,12 @@
 import React from "react";
+import Routers from "./routes";
 
 import { GlobalStyle } from "./styles/globalStyle";
 
 const App: React.FC = () => {
   return (
     <>
-      <h1>Teste</h1>
+      <Routers />
       <GlobalStyle />
     </>
   );

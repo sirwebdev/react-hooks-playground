@@ -12,8 +12,14 @@ export const Container = styled.li`
   font-weight: 100;
   padding-left: 10px;
 
+  cursor: default;
+
   & + li {
     margin-top: 10px;
+  }
+
+  &:hover {
+    color: yellow;
   }
 
   :before {

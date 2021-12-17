@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.button`
+type TContainerProps = {
+  visible: boolean;
+};
+
+export const Container = styled.button<TContainerProps>`
   position: absolute;
 
   left: 85px;
@@ -20,11 +24,11 @@ export const Container = styled.button`
   transition: all 0.3s;
 
   &:hover {
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
   }
 
   &:active {
     cursor: grabbing;
-    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
   }
 
   > b {
@@ -34,4 +38,11 @@ export const Container = styled.button`
     font-size: 2rem;
     font-weight: 500;
   }
+
+  ${({ visible }) =>
+    !visible &&
+    css`
+      display: none;
+      visibility: hidden;
+    `}
 `;

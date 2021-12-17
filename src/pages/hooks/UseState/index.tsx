@@ -13,13 +13,7 @@ const UseState: React.FC = () => {
     <Container>
       <PageHeader title="useState" />
 
-      <SplitHookContent
-        topics={[
-          "It's a state manager.",
-          "Return array of 2 types, an actual state and a callback to update state.",
-          "Can be started with a callback.",
-        ]}
-      >
+      <SplitHookContent topics={[]}>
         <Counter
           counter={counterNumber}
           handleIncrement={() => setCounterNumber(state => state + 1)}

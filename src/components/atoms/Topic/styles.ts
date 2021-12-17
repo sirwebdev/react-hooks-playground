@@ -5,7 +5,7 @@ export const Container = styled.li`
   align-items: center;
   position: relative;
 
-  font-size: 2rem;
+  font-size: 1.6rem;
 
   list-style: none;
 

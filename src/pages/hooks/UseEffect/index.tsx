@@ -1,4 +1,6 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+
+import useTopic from "../../../hooks/useTopic";
 
 import Counter from "../../../components/organisms/Counter";
 import PageHeader from "../../../components/molecules/PageHeader";
@@ -8,6 +10,7 @@ import { Container } from "./styles";
 
 const UseEffect: React.FC = () => {
   const [counterNumber, setCounterNumber] = useState(0);
+  const { selectedTopics } = useTopic();
 
   const handleIncrement = useCallback(
     () => setCounterNumber(state => state + 1),
@@ -22,14 +25,29 @@ const UseEffect: React.FC = () => {
   const handleResetCounter = useCallback(() => setCounterNumber(0), []);
 
   // TODO: Make a interval counter.
-
   // TODO: Stops interval counter when component will unmount.
+  useEffect(() => {
+    const intervalCounter = setInterval(() => handleIncrement(), 1000);
+
+    console.log("Calling the useEffect callback");
+
+    // When component will unmout call the destructor
+    return () => {
+      clearInterval(intervalCounter);
+      console.log("Calling the useEffect destructor");
+    };
+  }, [handleIncrement]);
+
+  // When component update do it
+  useEffect(() => {
+    console.log("CountNumber is: ", counterNumber);
+  }, [counterNumber]);
 
   return (
     <Container>
       <PageHeader title="useEffect" />
 
-      <SplitHookContent topics={[]}>
+      <SplitHookContent topics={selectedTopics}>
         <Counter
           counter={counterNumber}
           handleIncrement={handleIncrement}

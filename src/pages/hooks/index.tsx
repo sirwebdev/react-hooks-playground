@@ -15,8 +15,8 @@ const Hooks: React.FC = () => {
       <PageHeader title="" navigateTo="/" />
 
       <Content>
-        <Title value="What's is the main objective ?" />
-        <Description value="Provide all knowledge about react hooks into a counter application." />
+        <Title value="The challenger" />
+        <Description value="Provide all knowledge about react hooks into a counter." />
       </Content>
 
       <HookButtons data={hookList} />

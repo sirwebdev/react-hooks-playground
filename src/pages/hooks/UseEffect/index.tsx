@@ -1,19 +1,13 @@
 import React, { useCallback, useState } from "react";
 
-import Button from "../../../components/atoms/Button";
-
-import ForwardCounter from "../../../components/organisms/ForwardCounter";
-
+import Counter from "../../../components/organisms/Counter";
 import PageHeader from "../../../components/molecules/PageHeader";
-
 import SplitHookContent from "../../../components/templates/SplitHookContent";
 
-import { Container, ButtonsContainer } from "./styles";
+import { Container } from "./styles";
 
-const UseImperativeHandle: React.FC = () => {
+const UseEffect: React.FC = () => {
   const [counterNumber, setCounterNumber] = useState(0);
-
-  // TODO: Create a reference and manipulate it on child component.
 
   const handleIncrement = useCallback(
     () => setCounterNumber(state => state + 1),
@@ -27,27 +21,24 @@ const UseImperativeHandle: React.FC = () => {
 
   const handleResetCounter = useCallback(() => setCounterNumber(0), []);
 
+  // TODO: Make a interval counter.
+
+  // TODO: Stops interval counter when component will unmount.
+
   return (
     <Container>
-      <PageHeader title="UseImperativeHandle" />
+      <PageHeader title="useEffect" />
 
       <SplitHookContent topics={[]}>
-        <ForwardCounter
+        <Counter
           counter={counterNumber}
           handleIncrement={handleIncrement}
           handleDecrement={handleDecrement}
           handleResetCounter={handleResetCounter}
         />
-
-        <ButtonsContainer>
-          <Button text="Toggle visibility" />
-
-          <Button text="Reset Counter" />
-          <Button text="Toggle draggable" />
-        </ButtonsContainer>
       </SplitHookContent>
     </Container>
   );
 };
 
-export default UseImperativeHandle;
+export default UseEffect;

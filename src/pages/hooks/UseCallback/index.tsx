@@ -9,6 +9,8 @@ import { Container } from "./styles";
 const UseCallback: React.FC = () => {
   const [counterNumber, setCounterNumber] = useState(0);
 
+  // TODO: Provide a better way to create a function callback.
+
   return (
     <Container>
       <PageHeader title="useCallback" />

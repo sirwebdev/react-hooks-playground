@@ -1,0 +1,12 @@
+[
+  { "name": "useRef" },
+  { "name": "useMemo" },
+  { "name": "useState" },
+  { "name": "useEffect" },
+  { "name": "useContext" },
+  { "name": "useReducer" },
+  { "name": "useCallback" },
+  { "name": "useDebugValue" },
+  { "name": "useLayoutEffect" },
+  { "name": "useImperativeHandle" }
+]

@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   :root {
       --color-primary: #2c2c2c;
-      --color-secudary: "#3b3b3b";
+      --color-secundary: #202020;
       --color-white: #ffffff;
       --color-gray: #676767;
 
@@ -18,11 +18,18 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html, body, #root {
+    display: flex;
+    justify-content: center;
+    
     width: 100vw;
     height: 100vh;
     background: var(--color-primary);
 
     color: var(--color-white);
     font-family: Roboto;
+  }
+
+  button { 
+    cursor: pointer;
   }
 `;

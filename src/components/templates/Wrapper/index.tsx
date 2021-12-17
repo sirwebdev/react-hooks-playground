@@ -2,8 +2,8 @@ import React from "react";
 
 import { Container } from "./styles";
 
-const DefaultPage: React.FC = ({ children }) => {
+const Wrapper: React.FC = ({ children }) => {
   return <Container>{children}</Container>;
 };
 
-export default DefaultPage;
+export default Wrapper;

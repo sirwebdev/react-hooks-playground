@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Title from "../../components/atoms/Title";
+import Button from "../../components/atoms/Button";
 import Description from "../../components/atoms/Description";
-import DefaultPage from "../../components/templates/DefaultPage";
+
+import { Container, Footer } from "./styles";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToHooksPage = useCallback(
+    () => navigate("hooks"),
+    [navigate],
+  );
+
   return (
-    <DefaultPage>
-      <Title value="Welcome to react hooks playground" />
+    <Container>
+      <Title value="Welcome to react hooks playground." />
       <Description value="Developed by martins20" />
-    </DefaultPage>
+
+      <Footer>
+        <Button text="Start discover" onClick={handleNavigateToHooksPage} />
+      </Footer>
+    </Container>
   );
 };
 

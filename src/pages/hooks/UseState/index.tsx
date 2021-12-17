@@ -1,13 +1,14 @@
 import React from "react";
 
-import Description from "../../../components/atoms/Description";
-import DefaultPage from "../../../components/templates/DefaultPage";
+import { Container } from "./styles";
+
+import Title from "../../../components/atoms/Title";
 
 const UseState: React.FC = () => {
   return (
-    <DefaultPage>
-      <Description value="Testing useState hook." />
-    </DefaultPage>
+    <Container>
+      <Title value="Testing useState hook." />
+    </Container>
   );
 };
 

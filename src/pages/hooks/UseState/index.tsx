@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import PageHeader from "../../../components/molecules/PageHeader";
-import Counter from "../../../components/organisms/Counter";
 
-import { Container, Content } from "./styles";
+import Counter from "../../../components/organisms/Counter";
+import PageHeader from "../../../components/molecules/PageHeader";
+import SplitHookContent from "../../../components/templates/SplitHookContent";
+
+import { Container } from "./styles";
 
 const UseState: React.FC = () => {
   const [counterNumber, setCounterNumber] = useState(0);
@@ -11,7 +13,13 @@ const UseState: React.FC = () => {
     <Container>
       <PageHeader title="useState" />
 
-      <Content>
+      <SplitHookContent
+        topics={[
+          "It's a state manager.",
+          "Return array of 2 types, an actual state and a callback to update state.",
+          "Can be started with a callback.",
+        ]}
+      >
         <Counter
           counter={counterNumber}
           handleIncrement={() => setCounterNumber(state => state + 1)}
@@ -20,7 +28,7 @@ const UseState: React.FC = () => {
           }
           handleResetCounter={() => setCounterNumber(0)}
         />
-      </Content>
+      </SplitHookContent>
     </Container>
   );
 };

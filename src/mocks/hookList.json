@@ -1,12 +1,75 @@
 [
-  { "name": "useRef" },
-  { "name": "useMemo" },
-  { "name": "useState" },
-  { "name": "useEffect" },
-  { "name": "useContext" },
-  { "name": "useReducer" },
-  { "name": "useCallback" },
-  { "name": "useDebugValue" },
-  { "name": "useLayoutEffect" },
-  { "name": "useImperativeHandle" }
+  {
+    "name": "useRef",
+    "topics": ["Create a empty reference to manipulate other components."]
+  },
+  {
+    "name": "useMemo",
+    "topics": [
+      "Can be used to return a dinamic variable.",
+      "Does not accept parameters in your callback.",
+      "Must return a value inside of your callback.",
+      "Frequently used to create pure components based on logic."
+    ]
+  },
+  {
+    "name": "useState",
+    "topics": [
+      "It's a state manager.",
+      "Return array of 2 types, an actual state and a callback to update state.",
+      "Can be started with a callback."
+    ]
+  },
+  {
+    "name": "useEffect",
+    "topics": [
+      "It's a side-effect callback manager.",
+      "Can be used to make something when component did/will mount/update/unmount"
+    ]
+  },
+  {
+    "name": "useContext",
+    "topics": [
+      "It's a context manager.",
+      "Most used to share states/callback functions to other components.",
+      "For use a context, the child component must be wrapped in a provider."
+    ]
+  },
+  {
+    "name": "useReducer",
+    "topics": [
+      "It's a state manager.",
+      "Most used to encapsulate a logic when component change the state.",
+      "Looks is like a reducer from redux.",
+      "Must use dispatch from react, to dispatch some event type."
+    ]
+  },
+  {
+    "name": "useCallback",
+    "topics": [
+      "It's a callback manager",
+      "Most used to prevent useless render of callbacks."
+    ]
+  },
+  {
+    "name": "useDebugValue",
+    "topics": [
+      "Can be used to display a label for custom hooks in React DevTools."
+    ]
+  },
+  {
+    "name": "useLayoutEffect",
+    "topics": [
+      "It's a side-effect callback manager based on layout changes.",
+      "Can be used to make something when layout changes."
+    ]
+  },
+  {
+    "name": "useImperativeHandle",
+    "topics": [
+      "It's a reference manager from child component from higher order.",
+      "Most used to receive a reference param from higher order component and put into other child component.",
+      "To use this hook it must use forwardRef to create a component."
+    ]
+  }
 ]

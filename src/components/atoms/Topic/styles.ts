@@ -1,0 +1,26 @@
+import styled from "styled-components";
+
+export const Container = styled.li`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  font-size: 2rem;
+
+  list-style: none;
+
+  font-weight: 100;
+  padding-left: 10px;
+
+  & + li {
+    margin-top: 10px;
+  }
+
+  :before {
+    content: "°";
+
+    position: absolute;
+    top: 0.6rem;
+    left: -5px;
+  }
+`;

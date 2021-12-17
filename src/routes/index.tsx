@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Hooks from "../pages/Hooks";
+import NotFoundPage from "../pages/404";
 import UseRef from "../pages/Hooks/UseRef";
 import UseMemo from "../pages/Hooks/UseMemo";
 import UseState from "../pages/Hooks/UseState";
@@ -30,6 +31,8 @@ const Routers: React.FC = () => (
         path="/hooks/useImperativeHandle"
         element={<UseImperativeHandle />}
       />
+
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );

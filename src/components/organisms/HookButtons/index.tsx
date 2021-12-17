@@ -16,7 +16,7 @@ const HookButtons: React.FC<THookButtonsProps> = ({ data }) => {
     (pageName: string) => {
       navigate(pageName);
     },
-    [],
+    [navigate],
   );
 
   const HookButtonList = useMemo(() => {
@@ -29,7 +29,7 @@ const HookButtons: React.FC<THookButtonsProps> = ({ data }) => {
         onClick={() => handleNavigateToSelectButtonPageName(buttonData.name)}
       />
     ));
-  }, [data]);
+  }, [data, handleNavigateToSelectButtonPageName]);
 
   return <Container>{HookButtonList}</Container>;
 };

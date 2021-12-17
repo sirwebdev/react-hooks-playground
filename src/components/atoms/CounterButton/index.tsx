@@ -1,14 +1,14 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
 import { Container } from "./styles";
 
-type TContainerButtonProps = {
+type TContainerButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   value: string;
 };
 
-const CounterButton: React.FC<TContainerButtonProps> = ({ value }) => {
+const CounterButton: React.FC<TContainerButtonProps> = ({ value, ...rest }) => {
   return (
-    <Container>
+    <Container {...rest}>
       <b>{value}</b>
     </Container>
   );

@@ -43,7 +43,8 @@
     "react/function-component-definition": "off",
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "no-param-reassign": "off"
   },
   "settings": {
     "import/resolver": {

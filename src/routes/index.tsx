@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Hooks from "../pages/Hooks";
+import UseRef from "../pages/Hooks/UseRef";
 import UseState from "../pages/Hooks/UseState";
 import UseEffect from "../pages/Hooks/UseEffect";
 import UseCallback from "../pages/Hooks/UseCallback";
@@ -14,6 +15,7 @@ const Routers: React.FC = () => (
       <Route path="/" element={<Home />} />
       <Route path="/hooks" element={<Hooks />} />
       <Route path="/hooks/useState" element={<UseState />} />
+      <Route path="/hooks/useRef" element={<UseRef />} />
       <Route path="/hooks/useCallback" element={<UseCallback />} />
       <Route path="/hooks/useEffect" element={<UseEffect />} />
       <Route

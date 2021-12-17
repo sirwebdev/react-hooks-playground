@@ -2,18 +2,18 @@ import React, { useCallback, useState } from "react";
 
 import Button from "../../../components/atoms/Button";
 
-import PageHeader from "../../../components/molecules/PageHeader";
+import Counter from "../../../components/organisms/Counter";
 
-import ForwardCounter from "../../../components/organisms/ForwardCounter";
+import PageHeader from "../../../components/molecules/PageHeader";
 
 import SplitHookContent from "../../../components/templates/SplitHookContent";
 
-import { Container, ButtonsContainer } from "./styles";
+import { ButtonsContainer, Container } from "./styles";
 
-const UseImperativeHandle: React.FC = () => {
+const UseRef: React.FC = () => {
   const [counterNumber, setCounterNumber] = useState(0);
 
-  // TODO: Create a reference and manipulate it on child component.
+  // TODO: Log the Counter component into browser console
 
   const handleIncrement = useCallback(
     () => setCounterNumber(state => state + 1),
@@ -27,27 +27,29 @@ const UseImperativeHandle: React.FC = () => {
 
   const handleResetCounter = useCallback(() => setCounterNumber(0), []);
 
+  // eslint-disable-next-line
+  const handleLogCounterComponentIntoBrowser = useCallback(() => {}, []);
+
   return (
     <Container>
-      <PageHeader title="UseImperativeHandle" />
+      <PageHeader title="useRef" />
 
       <SplitHookContent topics={[]}>
-        <ForwardCounter
+        <Counter
           counter={counterNumber}
           handleIncrement={handleIncrement}
           handleDecrement={handleDecrement}
           handleResetCounter={handleResetCounter}
         />
-
         <ButtonsContainer>
-          <Button text="Toggle visibility" />
-
-          <Button text="Reset Counter" />
-          <Button text="Toggle draggable" />
+          <Button
+            text="Get Log from current reference"
+            onClick={handleLogCounterComponentIntoBrowser}
+          />
         </ButtonsContainer>
       </SplitHookContent>
     </Container>
   );
 };
 
-export default UseImperativeHandle;
+export default UseRef;

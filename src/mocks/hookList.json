@@ -24,7 +24,8 @@
     "name": "useEffect",
     "topics": [
       "It's a side-effect callback manager.",
-      "Can be used to make something when component did/will mount/update/unmount"
+      "Can be used to make something when component did/will mount/update/unmount",
+      "It's an asynchronous hook, with means who can run between the browser render."
     ]
   },
   {
@@ -61,7 +62,9 @@
     "name": "useLayoutEffect",
     "topics": [
       "It's a side-effect callback manager based on layout changes.",
-      "Can be used to make something when layout changes."
+      "Can be used to make something when layout changes.",
+      "It's a synchronous hook, with means who can not run between browser render.",
+      "Most used to manipulate doom, right before browser render in client browser."
     ]
   },
   {

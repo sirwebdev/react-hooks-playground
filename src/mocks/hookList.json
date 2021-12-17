@@ -9,7 +9,8 @@
       "Can be used to return a dinamic variable.",
       "Does not accept parameters in your callback.",
       "Must return a value inside of your callback.",
-      "Frequently used to create pure components based on logic."
+      "Frequently used to create pure components based on logic.",
+      "It's not a function."
     ]
   },
   {

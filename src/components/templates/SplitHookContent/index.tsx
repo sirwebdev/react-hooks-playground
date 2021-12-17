@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
+import React from "react";
 import Topics from "../../organisms/Topics";
 
-import { Container, TopicContainer } from "./styles";
+import { Container } from "./styles";
 
 type TSplitContainerProps = {
   topics: string[];

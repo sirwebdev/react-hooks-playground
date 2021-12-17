@@ -17,5 +17,3 @@ export const Container = styled.section`
     justify-content: center;
   }
 `;
-
-export const TopicContainer = styled.section``;

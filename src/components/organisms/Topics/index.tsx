@@ -14,7 +14,7 @@ const Topics: React.FC<TTopicsProps> = ({ data }) => {
     if (!data.length) return;
 
     return data.map(value => <Topic key={value} text={value} />);
-  }, []);
+  }, [data]);
 
   return (
     <Container>

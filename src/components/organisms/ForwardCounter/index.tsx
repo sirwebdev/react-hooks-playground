@@ -1,10 +1,22 @@
-import React, { useCallback, forwardRef } from "react";
+import React, {
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from "react";
+
 import Draggable, { DraggableData } from "react-draggable";
 
 import CounterButton from "../../atoms/CounterButton";
-import CounterDisplay, { TCounterDisplayRef } from "../../atoms/CounterDisplay";
+import CounterDisplay from "../../atoms/CounterDisplay";
 
 import { Container } from "./styles";
+
+export type TForwardCounterRef = {
+  resetCounterFromReference(): void;
+  toggleDisplayVisibility(): void;
+  toggleDraggableFeature(): void;
+};
 
 type TForwardCounterProps = {
   counter: number;
@@ -14,12 +26,15 @@ type TForwardCounterProps = {
 };
 
 const ForwardCounter: React.ForwardRefRenderFunction<
-  TCounterDisplayRef,
+  TForwardCounterRef,
   TForwardCounterProps
 > = (
   { counter, handleIncrement, handleDecrement, handleResetCounter },
   reference,
 ) => {
+  const [isDisplayVisible, setIsDisplayVisible] = useState(true);
+  const [isDraggable, setIsDraggable] = useState(true);
+
   const handleDragEnd = useCallback(
     (data: DraggableData) => {
       const { x, y } = data;
@@ -34,6 +49,24 @@ const ForwardCounter: React.ForwardRefRenderFunction<
       if (isDraggableToTheBottom) handleResetCounter();
     },
     [handleDecrement, handleIncrement, handleResetCounter],
+  );
+
+  const toggleDisplayVisibility = useCallback(() => {
+    setIsDisplayVisible(state => !state);
+  }, []);
+
+  const toggleDraggableFeature = useCallback(() => {
+    setIsDraggable(state => !state);
+  }, []);
+
+  useImperativeHandle(
+    reference,
+    (): TForwardCounterRef => ({
+      resetCounterFromReference: handleResetCounter,
+      toggleDisplayVisibility,
+      toggleDraggableFeature,
+    }),
+    [handleResetCounter, toggleDisplayVisibility, toggleDraggableFeature],
   );
 
   return (
@@ -52,12 +85,12 @@ const ForwardCounter: React.ForwardRefRenderFunction<
           x: 0,
           y: 0,
         }}
-        handle=""
+        disabled={!isDraggable}
       >
         <CounterDisplay
           value={counter}
           onClick={handleIncrement}
-          ref={reference}
+          isDisplayVisible={isDisplayVisible}
         />
       </Draggable>
       <CounterButton value="x" onClick={handleResetCounter} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import Counter from "../../../components/organisms/Counter";
 import PageHeader from "../../../components/molecules/PageHeader";
@@ -11,18 +11,35 @@ const UseCallback: React.FC = () => {
 
   // TODO: Provide a better way to create a function callback.
 
+  const handleIncrement = useCallback(() => {
+    setCounterNumber(counterNumber + 1);
+  }, [counterNumber]);
+
+  const handleDecrement = useCallback(() => {
+    if (counterNumber <= 0) return setCounterNumber(counterNumber);
+
+    setCounterNumber(counterNumber - 1);
+  }, [counterNumber]);
+
+  const handleResetCounter = useCallback(() => {
+    setCounterNumber(0);
+  }, []);
+
   return (
     <Container>
       <PageHeader title="useCallback" />
 
-      <SplitHookContent topics={[]}>
+      <SplitHookContent
+        topics={[
+          "It's a callback manager.",
+          "Most used to prevent useless render of callbacks.",
+        ]}
+      >
         <Counter
           counter={counterNumber}
-          handleIncrement={() => setCounterNumber(state => state + 1)}
-          handleDecrement={() =>
-            setCounterNumber(state => (state > 0 ? state - 1 : state))
-          }
-          handleResetCounter={() => setCounterNumber(0)}
+          handleIncrement={handleIncrement}
+          handleDecrement={handleDecrement}
+          handleResetCounter={handleResetCounter}
         />
       </SplitHookContent>
     </Container>

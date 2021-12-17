@@ -5,14 +5,16 @@ import PageHeader from "../../../components/molecules/PageHeader";
 import SplitHookContent from "../../../components/templates/SplitHookContent";
 
 import { Container } from "./styles";
+import useTopic from "../../../hooks/useTopic";
 
 const UseContext: React.FC = () => {
+  const { selectedTopics } = useTopic();
+
   const [counterNumber, setCounterNumber] = useState(0);
 
-  const handleIncrement = useCallback(
-    () => setCounterNumber(state => state + 1),
-    [],
-  );
+  const handleIncrement = useCallback(() => {
+    setCounterNumber(state => state + 1);
+  }, []);
 
   const handleDecrement = useCallback(
     () => setCounterNumber(state => (state > 0 ? state - 1 : state)),
@@ -27,7 +29,7 @@ const UseContext: React.FC = () => {
     <Container>
       <PageHeader title="useContext" />
 
-      <SplitHookContent topics={[]}>
+      <SplitHookContent topics={selectedTopics}>
         <Counter
           counter={counterNumber}
           handleIncrement={handleIncrement}

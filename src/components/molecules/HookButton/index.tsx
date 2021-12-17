@@ -1,10 +1,12 @@
 import React, { ButtonHTMLAttributes } from "react";
 import ReactLogoIcon from "../../atoms/ReactLogoIcon";
+import { TTopic } from "../../atoms/Topic";
 
 import { Container } from "./styles";
 
 export type THookButton = {
   name: string;
+  topics: TTopic[];
 };
 
 type THookButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

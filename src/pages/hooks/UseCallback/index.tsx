@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
+
+import useTopic from "../../../hooks/useTopic";
 
 import Counter from "../../../components/organisms/Counter";
 import PageHeader from "../../../components/molecules/PageHeader";
@@ -8,6 +10,7 @@ import { Container } from "./styles";
 
 const UseCallback: React.FC = () => {
   const [counterNumber, setCounterNumber] = useState(0);
+  const { selectedTopics } = useTopic();
 
   // TODO: Provide a better way to create a function callback.
 
@@ -29,12 +32,7 @@ const UseCallback: React.FC = () => {
     <Container>
       <PageHeader title="useCallback" />
 
-      <SplitHookContent
-        topics={[
-          "It's a callback manager.",
-          "Most used to prevent useless render of callbacks.",
-        ]}
-      >
+      <SplitHookContent topics={selectedTopics}>
         <Counter
           counter={counterNumber}
           handleIncrement={handleIncrement}

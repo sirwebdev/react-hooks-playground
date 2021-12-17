@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BackButton from "../../atoms/BackButton";
+import ReactLogoIcon from "../../atoms/ReactLogoIcon";
 import Title from "../../atoms/Title";
 
 import { Container } from "./styles";
@@ -21,7 +22,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, navigateTo }) => {
 
   return (
     <Container>
-      <BackButton onClick={handleGoBack} />
+      <>
+        <BackButton onClick={handleGoBack} />
+        <ReactLogoIcon currentSize="small" />
+      </>
 
       <Title value={title} type="small" />
     </Container>

@@ -12,7 +12,7 @@ export const Container = styled.button`
   transition: all 0.2s;
 
   &:active {
-    background: var(--color-secundary);
+    background: var(--color-primary);
   }
 
   > b {

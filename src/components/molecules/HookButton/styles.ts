@@ -19,6 +19,9 @@ export const Container = styled.button`
   transition: all 0.3s;
 
   &:hover {
+    animation-play-state: paused;
+    animation: none;
+
     background: var(--color-primary);
     border-color: var(--color-white);
 

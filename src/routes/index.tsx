@@ -8,6 +8,7 @@ import UseMemo from "../pages/Hooks/UseMemo";
 import UseState from "../pages/Hooks/UseState";
 import UseEffect from "../pages/Hooks/UseEffect";
 import UseReducer from "../pages/Hooks/UseReducer";
+import UseContext from "../pages/Hooks/UseContext";
 import UseCallback from "../pages/Hooks/UseCallback";
 import UseLayoutEffect from "../pages/Hooks/UseLayoutEffect";
 import UseImperativeHandle from "../pages/Hooks/UseImperativeHandle";
@@ -23,6 +24,7 @@ const Routers: React.FC = () => (
       <Route path="/hooks/useEffect" element={<UseEffect />} />
       <Route path="/hooks/useReducer" element={<UseReducer />} />
       <Route path="/hooks/useCallback" element={<UseCallback />} />
+      <Route path="/hooks/useContext" element={<UseContext />} />
       <Route path="/hooks/useLayoutEffect" element={<UseLayoutEffect />} />
       <Route
         path="/hooks/useImperativeHandle"

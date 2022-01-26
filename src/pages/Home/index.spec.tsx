@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import React from "react";
 import {
   render,
@@ -9,6 +10,7 @@ import {
 import Sut from ".";
 
 let sut: RenderResult;
+let spy: HomeSpy;
 
 const mockNavigate = jest.fn();
 
@@ -16,9 +18,21 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => (to: string) => mockNavigate(to),
 }));
 
+class HomeSpy {
+  pressButton(sutResponse: RenderResult, buttonNameText: string) {
+    const { getByText } = sutResponse;
+
+    const ButtonElement = getByText(buttonNameText);
+    expect(ButtonElement).toBeTruthy();
+
+    fireEvent.click(ButtonElement);
+  }
+}
+
 describe("Home", () => {
   beforeEach(() => {
     sut = render(<Sut />);
+    spy = new HomeSpy();
   });
 
   afterEach(() => {
@@ -34,12 +48,7 @@ describe("Home", () => {
   });
 
   it("Should be able to navigate to hooks screen when clicks 'Start Discover' button", () => {
-    const { getByText } = sut;
-
-    const ButtonElement = getByText("Start discover");
-    expect(ButtonElement).toBeTruthy();
-
-    fireEvent.click(ButtonElement);
+    spy.pressButton(sut, "Start discover");
 
     expect(mockNavigate).toHaveBeenCalled();
     expect(mockNavigate).toHaveBeenCalledTimes(1);

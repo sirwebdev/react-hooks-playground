@@ -2,17 +2,17 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
-import Hooks from "../pages/Hooks";
+import Hooks from "../pages/hooks";
 import NotFoundPage from "../pages/404";
-import UseRef from "../pages/Hooks/UseRef";
-import UseMemo from "../pages/Hooks/UseMemo";
-import UseState from "../pages/Hooks/UseState";
-import UseEffect from "../pages/Hooks/UseEffect";
-import UseReducer from "../pages/Hooks/UseReducer";
-import UseContext from "../pages/Hooks/UseContext";
-import UseCallback from "../pages/Hooks/UseCallback";
-import UseLayoutEffect from "../pages/Hooks/UseLayoutEffect";
-import UseImperativeHandle from "../pages/Hooks/UseImperativeHandle";
+import UseRef from "../pages/hooks/UseRef";
+import UseMemo from "../pages/hooks/UseMemo";
+import UseState from "../pages/hooks/UseState";
+import UseEffect from "../pages/hooks/UseEffect";
+import UseReducer from "../pages/hooks/UseReducer";
+import UseContext from "../pages/hooks/UseContext";
+import UseCallback from "../pages/hooks/UseCallback";
+import UseLayoutEffect from "../pages/hooks/UseLayoutEffect";
+import UseImperativeHandle from "../pages/hooks/UseImperativeHandle";
 
 const Routers: React.FC = () => (
   <BrowserRouter>

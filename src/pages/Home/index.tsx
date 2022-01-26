@@ -16,7 +16,7 @@ const Home: React.FC = () => {
   );
 
   return (
-    <Container>
+    <Container data-testId="home_container">
       <Title value="Welcome to react hooks playground." />
       <Description value="Developed by martins20" />
 
